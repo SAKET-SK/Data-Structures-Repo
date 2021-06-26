@@ -1,0 +1,92 @@
+Algorithm to insert element at the beginning of linked list:
+1. Obtain space for new node.
+p = (node*)malloc(sizeof(node));
+2. Assign data in the data field of new node.
+pdata = x;
+3. Set the next field of the new node to the beginning (Head) of the linked list.
+pnext = head
+4. Change the reference pointer (Head) of the linked list to point to the new node.
+head = p
+------------------------
+Algorithm to insert element at the middle (after a given node q) of linked list:
+1. Obtain space for new node.
+p = (node*)malloc(sizeof(node));
+2. Assign data in the data field of new node.
+pdata = x;
+3. Search for node with value ‘key’ after which we want to insert a new node.
+q=head;
+while (key!=qdata)
+{
+q=qnext;
+}
+4. Set the next field of the new node to point to qnext.
+pnext = qnext;
+5. Set the next field of q to point to the new node.
+qnext = p;
+-----------------------------
+Algorithm to insert element at the end of linked list:
+1. Obtain space for new node.
+p = (node*)malloc(sizeof(node));
+2. Assign data in the data field of new node.
+pdata = x;
+3. Assign NULL in the address field of new node.
+pnext = NULL;
+4. If head is NULL then head=P and goto step 7.
+5. Position pointer q at the end of linked list.
+q=head;
+while (qnext!=NULL)
+{
+q=qnext;
+}
+6. Set the address of newly acquired node, pointed by P, in the next field of node pointed by q.
+qnext = p;
+7. STOP
+---------------------------------
+Algorithm to delete element at the beginning of linked list:
+1. Store the address of the first node in a pointer p. p=head;
+2. Move the head of the linked list to the next node. head=headnext;
+3. Free the first node whose address is stored in pointer p. free(p);
+-----------------------
+Algorithm to delete element at the middle (after given node p) of linked list:
+1. Store the address of preceding node in a pointer variable p. Node to be deleted is marked as a key node. p=head;
+While(key!=(pnext)data)
+{
+p=pnext;
+}
+2. Store the address of the key node in the pointer variable q, so that it can be freed subsequently. q=pnext;
+3. Make the successor of the key node as the successor of the node pointed by p.
+pnext=qnext;
+4. Free the node whose address is stored in pointer variable p.
+free(q);
+--------------------------------
+Algorithm to delete last element of linked list
+1.If first node is itself the last node then
+[Make the linked list empty]
+i.e if (head->next==NULL)
+{
+free(head);
+head=NULL;
+goto step 4
+}
+2.[otherwise]
+position a pointer q on the last but one node i.e
+q = head;
+while(q->next->next != NULL)
+q=q->next
+3.Delete last node
+p=q->next;
+free(p);
+q->next=NULL;
+4.STOP
+-----------------------------------------
+Algorithm to search an element in linked list
+In order to search the required node, we need to traverse the linked list from the very start i.e the first node
+1.P=head
+2.If data stored in node pointed by P is x then
+[end search with sucess message i.e return 1]
+3.Continue searching i.e p=p->next
+4.If end of the linked list then
+[end with faliure i.e return 0]
+5.goto step 2
+6.STOP
+

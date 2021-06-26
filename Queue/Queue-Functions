@@ -1,0 +1,18 @@
+Insert (QUEUE, F, R, N, Item) [This will inserts ‘Item’ in the QUEUE after ‘R (rear)’ where ‘N’ is size of array.]
+1. [Overflow?]
+If (R==MAX-1) write Queue is full return
+[End of If] 2. [Increment R]
+If (R == -1)
+R=F=0
+Else
+R=R+1
+[End of If] 3. [Insert Element] QUEUE [R] = Item. 4. return
+Delete (QUEUE, F, R, N, Item) [This will deletes ‘Item’ in the QUEUE at ‘F (front)’ where ‘N’ is size of array.]
+1. [Underflow?]
+If (R== -1) write Queue is empty return
+[End of If]
+2. [Delete Element] Item = QUEUE [F] 3. [Increment F] If (R == F)
+R=F=-1
+Else
+F=F+1
+[End of if] 4. Return Item
